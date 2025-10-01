@@ -3,7 +3,7 @@ Iterations               32       64      128        256
 Retirement Time         3411     6723    13347      26595
 Inst. Executed          160      320     640        1280 
 WAW Cycles              3120     6240    12480      24960 
-WAR Cycles                0        0
+WAR Cycles                0        0        0           0
 1. cycles = 223n + 1
 2. speedup = 2.15x
 3. The pipeline structure allows the two bottlenecks to process somewhat in parallel,

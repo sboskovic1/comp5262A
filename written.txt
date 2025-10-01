@@ -1,0 +1,35 @@
+Program 1
+Iterations               32       64      128        256
+Retirement Time         3411     6723    13347      26595
+Inst. Executed          160      320     640        1280 
+WAW Cycles              3120     6240    12480      24960 
+WAR Cycles                0        0
+1. cycles = 223n + 1
+2. speedup = 2.15x
+3. The pipeline structure allows the two bottlenecks to process somewhat in parallel,
+    those being the LOAD/ADDFP and the BNEZ/INTADD, speeding up the program by over 2x.
+
+Program 2
+Iterations               32       64      128        256
+Retirement Time         9955    19811    39523      78947
+Inst. Executed          288     576      1152       2304
+WAW Cycles              3168    6336     12672      25344
+WAR Cycles              6368    12736    25472      50944
+1. cycles = 441n + 1
+2. speedup = 4.32x
+3. Similarly to the last one, this is a longer program with fewer bottlenecks which allows 
+   more instructions to be intertwined between the WAW and WAR dependencies, allowing the OOO
+   execution to lead to over a 4x speedup.
+
+
+Program 3
+Iterations               32       64      128        256
+Retirement Time         3584     7072    14048      28000
+Inst. Executed          192      382     768        1536
+WAW Cycles              3263     6527    13055      26111
+WAR Cycles              0         0        0          0
+1. cycles = 228n + 1
+2. speedup = 2.09x
+3. This speedup occurs for the same reason as the first, as there are two bottlenecked sets of 
+   operations and utilizing the buffer allows for other operations to be intertwined between the waiting 
+   periods.

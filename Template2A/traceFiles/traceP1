@@ -1,0 +1,593 @@
+
+********************************************************************************
+********************************************************************************
+**                                                                            **
+**                      YACSIM Version 2.0, 3/6/93                            **
+**                                                                            **
+**            Copyright 1993 by Rice University, Houston, Texas               **
+**                                                                            **
+**        Send comments to: J. Robert Jump, ECE Dept., Rice University        **
+**       P.O. Box 1892, Houston, TX 77251; (713) 527-8101; jrj@rice.edu       **
+**                                                                            **
+********************************************************************************
+********************************************************************************
+
+
+******************************************************************************
+Num_ITERATIONS: 2	NUM_FUs: 8	NUM_COPIES: 1	NUM_WAITBUFS: 4 TRACE: ON
+******************************************************************************
+
+In WRITE Stage at time  0
+In EXECUTE Stage at time  0
+In DISPATCH Stage at time  0
+	Could not find any instruction to dispatch. Time:  0.00
+In ISSUE  Stage at time  0
+In FETCH  Stage at time  0
+	PC: 4 INSTRUCTION: 10200000
+In DISPLAY  Stage at time  0
+
+
+In WRITE Stage at time  1
+In EXECUTE Stage at time  1
+In DISPATCH Stage at time  1
+	Could not find any instruction to dispatch. Time:  1.00
+In ISSUE  Stage at time  1
+ISSUE:OPCODE: LOAD  Adding to insWaitBuffer[0]: src1Reg1: 1 srcReg2: -1 destReg: 0
+In FETCH  Stage at time  1
+	PC: 8 INSTRUCTION: 15094000
+In DISPLAY  Stage at time  1
+
+
+In WRITE Stage at time  2
+In EXECUTE Stage at time  2
+In DISPATCH Stage at time  2
+	Activating FU LOAD from insWaitBuffer[0] at time  2.00
+In ISSUE  Stage at time  2
+ISSUE:OPCODE: INTADD  Adding to insWaitBuffer[0]: src1Reg1: 8 srcReg2: 9 destReg: 8
+In FETCH  Stage at time  2
+	PC: 12 INSTRUCTION: 4401000
+In DISPLAY  Stage at time  2
+
+
+In WRITE Stage at time  3
+In EXECUTE Stage at time  3
+	FU  LOAD (id: 4) woken up at time  3
+FU LOAD  Starting: operand1: 0  operand2: 0
+In DISPATCH Stage at time  3
+	Activating FU INTADD from insWaitBuffer[0] at time  3.00
+In ISSUE  Stage at time  3
+ISSUE:OPCODE: ADDFP  Adding to insWaitBuffer[0]: src1Reg1: 2 srcReg2: 0 destReg: 2
+In FETCH  Stage at time  3
+	PC: 16 INSTRUCTION: 14230800
+In DISPLAY  Stage at time  3
+
+
+In WRITE Stage at time  4
+In EXECUTE Stage at time  4
+	FU  INTADD (id: 5) woken up at time  4
+FU INTADD  Starting: operand1: 2  operand2: -1
+In DISPATCH Stage at time  4
+	Could not find any instruction to dispatch. Time:  4.00
+In ISSUE  Stage at time  4
+ISSUE:OPCODE: INTADD  Adding to insWaitBuffer[1]: src1Reg1: 1 srcReg2: 3 destReg: 1
+In FETCH  Stage at time  4
+	PC: 20 INSTRUCTION: 2500ffec
+In DISPLAY  Stage at time  4
+
+Time:  5.00 FU completed INTADD: operand1: 2  operand2: -1  result: 1
+		FU Unit INTADD delivered results  at time  5.00-
+
+In WRITE Stage at time  5
+	Completed Instruction: INTADD. Result: 1 Dest Reg: 8 Time:  5  Num Instructions Completed: 1
+In EXECUTE Stage at time  5
+In DISPATCH Stage at time  5
+	Activating FU INTADD from insWaitBuffer[1] at time  5.00
+In ISSUE  Stage at time  5
+In FETCH  Stage at time  5
+	PC: 0 INSTRUCTION: 0
+In DISPLAY  Stage at time  5
+
+
+In WRITE Stage at time  6
+In EXECUTE Stage at time  6
+	FU  INTADD (id: 5) woken up at time  6
+FU INTADD  Starting: operand1: 0  operand2: 1
+In DISPATCH Stage at time  6
+	Could not find any instruction to dispatch. Time:  6.00
+In ISSUE  Stage at time  6
+In FETCH  Stage at time  6
+	PC: 4 INSTRUCTION: 10200000
+In DISPLAY  Stage at time  6
+
+Time:  7.00 FU completed LOAD: operand1: 0  operand2: 0  result: 500
+		FU Unit LOAD delivered results  at time  7.00-
+Time:  7.00 FU completed INTADD: operand1: 0  operand2: 1  result: 1
+		FU Unit INTADD delivered results  at time  7.00-
+
+In WRITE Stage at time  7
+	Completed Instruction: LOAD. Result: 500 Dest Reg: 0 Time:  7  Num Instructions Completed: 3
+In EXECUTE Stage at time  7
+In DISPATCH Stage at time  7
+	Activating FU ADDFP from insWaitBuffer[0] at time  7.00
+In ISSUE  Stage at time  7
+ISSUE:OPCODE: LOAD  Adding to insWaitBuffer[0]: src1Reg1: 1 srcReg2: -1 destReg: 0
+In FETCH  Stage at time  7
+	PC: 8 INSTRUCTION: 15094000
+In DISPLAY  Stage at time  7
+
+
+In WRITE Stage at time  8
+	Completed Instruction: INTADD. Result: 1 Dest Reg: 1 Time:  8  Num Instructions Completed: 4
+In EXECUTE Stage at time  8
+	FU  ADDFP (id: 1) woken up at time  8
+FU ADDFP  Starting: operand1: 0  operand2: 500
+In DISPATCH Stage at time  8
+	Activating FU LOAD from insWaitBuffer[0] at time  8.00
+In ISSUE  Stage at time  8
+ISSUE:OPCODE: INTADD  Adding to insWaitBuffer[0]: src1Reg1: 8 srcReg2: 9 destReg: 8
+In FETCH  Stage at time  8
+	PC: 12 INSTRUCTION: 4401000
+In DISPLAY  Stage at time  8
+
+
+In WRITE Stage at time  9
+In EXECUTE Stage at time  9
+	FU  LOAD (id: 4) woken up at time  9
+FU LOAD  Starting: operand1: 1  operand2: 0
+In DISPATCH Stage at time  9
+	Activating FU INTADD from insWaitBuffer[0] at time  9.00
+In ISSUE  Stage at time  9
+	WAW Stall Time:  9.00 OP: ADDFP Reg: 2 Num WAW Stalls: 1
+In FETCH  Stage at time  9
+	PC: 12 INSTRUCTION: 4401000
+In DISPLAY  Stage at time  9
+
+
+In WRITE Stage at time 10
+In EXECUTE Stage at time 10
+	FU  INTADD (id: 5) woken up at time 10
+FU INTADD  Starting: operand1: 1  operand2: -1
+In DISPATCH Stage at time 10
+	Could not find any instruction to dispatch. Time: 10.00
+In ISSUE  Stage at time 10
+	WAW Stall Time: 10.00 OP: ADDFP Reg: 2 Num WAW Stalls: 2
+In FETCH  Stage at time 10
+	PC: 12 INSTRUCTION: 4401000
+In DISPLAY  Stage at time 10
+
+Time: 11.00 FU completed INTADD: operand1: 1  operand2: -1  result: 0
+		FU Unit INTADD delivered results  at time 11.00-
+
+In WRITE Stage at time 11
+	Completed Instruction: INTADD. Result: 0 Dest Reg: 8 Time: 11  Num Instructions Completed: 5
+In EXECUTE Stage at time 11
+In DISPATCH Stage at time 11
+	Could not find any instruction to dispatch. Time: 11.00
+In ISSUE  Stage at time 11
+	WAW Stall Time: 11.00 OP: ADDFP Reg: 2 Num WAW Stalls: 3
+In FETCH  Stage at time 11
+	PC: 12 INSTRUCTION: 4401000
+In DISPLAY  Stage at time 11
+
+Time: 12.00 FU completed ADDFP: operand1: 0  operand2: 500  result: 500
+		FU Unit ADDFP delivered results  at time 12.00-
+
+In WRITE Stage at time 12
+	Completed Instruction: ADDFP. Result: 500 Dest Reg: 2 Time: 12  Num Instructions Completed: 6
+In EXECUTE Stage at time 12
+In DISPATCH Stage at time 12
+	Could not find any instruction to dispatch. Time: 12.00
+In ISSUE  Stage at time 12
+ISSUE:OPCODE: ADDFP  Adding to insWaitBuffer[0]: src1Reg1: 2 srcReg2: 0 destReg: 2
+In FETCH  Stage at time 12
+	PC: 16 INSTRUCTION: 14230800
+In DISPLAY  Stage at time 12
+
+Time: 13.00 FU completed LOAD: operand1: 1  operand2: 0  result: 501
+		FU Unit LOAD delivered results  at time 13.00-
+
+In WRITE Stage at time 13
+	Completed Instruction: LOAD. Result: 501 Dest Reg: 0 Time: 13  Num Instructions Completed: 7
+In EXECUTE Stage at time 13
+In DISPATCH Stage at time 13
+	Activating FU ADDFP from insWaitBuffer[0] at time 13.00
+In ISSUE  Stage at time 13
+ISSUE:OPCODE: INTADD  Adding to insWaitBuffer[0]: src1Reg1: 1 srcReg2: 3 destReg: 1
+In FETCH  Stage at time 13
+	PC: 20 INSTRUCTION: 2500ffec
+In DISPLAY  Stage at time 13
+
+
+In WRITE Stage at time 14
+In EXECUTE Stage at time 14
+	FU  ADDFP (id: 1) woken up at time 14
+FU ADDFP  Starting: operand1: 500  operand2: 501
+In DISPATCH Stage at time 14
+	Activating FU INTADD from insWaitBuffer[0] at time 14.00
+In ISSUE  Stage at time 14
+In FETCH  Stage at time 14
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 14
+
+
+In WRITE Stage at time 15
+In EXECUTE Stage at time 15
+	FU  INTADD (id: 5) woken up at time 15
+FU INTADD  Starting: operand1: 1  operand2: 1
+In DISPATCH Stage at time 15
+	Could not find any instruction to dispatch. Time: 15.00
+In ISSUE  Stage at time 15
+In FETCH  Stage at time 15
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 15
+
+Time: 16.00 FU completed INTADD: operand1: 1  operand2: 1  result: 2
+		FU Unit INTADD delivered results  at time 16.00-
+
+In WRITE Stage at time 16
+	Completed Instruction: INTADD. Result: 2 Dest Reg: 1 Time: 16  Num Instructions Completed: 9
+In EXECUTE Stage at time 16
+In DISPATCH Stage at time 16
+	Could not find any instruction to dispatch. Time: 16.00
+In ISSUE  Stage at time 16
+In FETCH  Stage at time 16
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 16
+
+
+In WRITE Stage at time 17
+In EXECUTE Stage at time 17
+In DISPATCH Stage at time 17
+	Could not find any instruction to dispatch. Time: 17.00
+In ISSUE  Stage at time 17
+In FETCH  Stage at time 17
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 17
+
+Time: 18.00 FU completed ADDFP: operand1: 500  operand2: 501  result: 1001
+		FU Unit ADDFP delivered results  at time 18.00-
+
+In WRITE Stage at time 18
+	Completed Instruction: ADDFP. Result: 1001 Dest Reg: 2 Time: 18  Num Instructions Completed: 10
+In EXECUTE Stage at time 18
+In DISPATCH Stage at time 18
+	Could not find any instruction to dispatch. Time: 18.00
+In ISSUE  Stage at time 18
+In FETCH  Stage at time 18
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 18
+
+
+In WRITE Stage at time 19
+In EXECUTE Stage at time 19
+In DISPATCH Stage at time 19
+	Could not find any instruction to dispatch. Time: 19.00
+In ISSUE  Stage at time 19
+In FETCH  Stage at time 19
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 19
+
+
+In WRITE Stage at time 20
+In EXECUTE Stage at time 20
+In DISPATCH Stage at time 20
+	Could not find any instruction to dispatch. Time: 20.00
+In ISSUE  Stage at time 20
+In FETCH  Stage at time 20
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 20
+
+
+In WRITE Stage at time 21
+In EXECUTE Stage at time 21
+In DISPATCH Stage at time 21
+	Could not find any instruction to dispatch. Time: 21.00
+In ISSUE  Stage at time 21
+In FETCH  Stage at time 21
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 21
+
+
+In WRITE Stage at time 22
+In EXECUTE Stage at time 22
+In DISPATCH Stage at time 22
+	Could not find any instruction to dispatch. Time: 22.00
+In ISSUE  Stage at time 22
+In FETCH  Stage at time 22
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 22
+
+
+In WRITE Stage at time 23
+In EXECUTE Stage at time 23
+In DISPATCH Stage at time 23
+	Could not find any instruction to dispatch. Time: 23.00
+In ISSUE  Stage at time 23
+In FETCH  Stage at time 23
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 23
+
+
+In WRITE Stage at time 24
+In EXECUTE Stage at time 24
+In DISPATCH Stage at time 24
+	Could not find any instruction to dispatch. Time: 24.00
+In ISSUE  Stage at time 24
+In FETCH  Stage at time 24
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 24
+
+
+In WRITE Stage at time 25
+In EXECUTE Stage at time 25
+In DISPATCH Stage at time 25
+	Could not find any instruction to dispatch. Time: 25.00
+In ISSUE  Stage at time 25
+In FETCH  Stage at time 25
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 25
+
+
+In WRITE Stage at time 26
+In EXECUTE Stage at time 26
+In DISPATCH Stage at time 26
+	Could not find any instruction to dispatch. Time: 26.00
+In ISSUE  Stage at time 26
+In FETCH  Stage at time 26
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 26
+
+
+In WRITE Stage at time 27
+In EXECUTE Stage at time 27
+In DISPATCH Stage at time 27
+	Could not find any instruction to dispatch. Time: 27.00
+In ISSUE  Stage at time 27
+In FETCH  Stage at time 27
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 27
+
+
+In WRITE Stage at time 28
+In EXECUTE Stage at time 28
+In DISPATCH Stage at time 28
+	Could not find any instruction to dispatch. Time: 28.00
+In ISSUE  Stage at time 28
+In FETCH  Stage at time 28
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 28
+
+
+In WRITE Stage at time 29
+In EXECUTE Stage at time 29
+In DISPATCH Stage at time 29
+	Could not find any instruction to dispatch. Time: 29.00
+In ISSUE  Stage at time 29
+In FETCH  Stage at time 29
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 29
+
+
+In WRITE Stage at time 30
+In EXECUTE Stage at time 30
+In DISPATCH Stage at time 30
+	Could not find any instruction to dispatch. Time: 30.00
+In ISSUE  Stage at time 30
+In FETCH  Stage at time 30
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 30
+
+
+In WRITE Stage at time 31
+In EXECUTE Stage at time 31
+In DISPATCH Stage at time 31
+	Could not find any instruction to dispatch. Time: 31.00
+In ISSUE  Stage at time 31
+In FETCH  Stage at time 31
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 31
+
+
+In WRITE Stage at time 32
+In EXECUTE Stage at time 32
+In DISPATCH Stage at time 32
+	Could not find any instruction to dispatch. Time: 32.00
+In ISSUE  Stage at time 32
+In FETCH  Stage at time 32
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 32
+
+
+In WRITE Stage at time 33
+In EXECUTE Stage at time 33
+In DISPATCH Stage at time 33
+	Could not find any instruction to dispatch. Time: 33.00
+In ISSUE  Stage at time 33
+In FETCH  Stage at time 33
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 33
+
+
+In WRITE Stage at time 34
+In EXECUTE Stage at time 34
+In DISPATCH Stage at time 34
+	Could not find any instruction to dispatch. Time: 34.00
+In ISSUE  Stage at time 34
+In FETCH  Stage at time 34
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 34
+
+
+In WRITE Stage at time 35
+In EXECUTE Stage at time 35
+In DISPATCH Stage at time 35
+	Could not find any instruction to dispatch. Time: 35.00
+In ISSUE  Stage at time 35
+In FETCH  Stage at time 35
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 35
+
+
+In WRITE Stage at time 36
+In EXECUTE Stage at time 36
+In DISPATCH Stage at time 36
+	Could not find any instruction to dispatch. Time: 36.00
+In ISSUE  Stage at time 36
+In FETCH  Stage at time 36
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 36
+
+
+In WRITE Stage at time 37
+In EXECUTE Stage at time 37
+In DISPATCH Stage at time 37
+	Could not find any instruction to dispatch. Time: 37.00
+In ISSUE  Stage at time 37
+In FETCH  Stage at time 37
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 37
+
+
+In WRITE Stage at time 38
+In EXECUTE Stage at time 38
+In DISPATCH Stage at time 38
+	Could not find any instruction to dispatch. Time: 38.00
+In ISSUE  Stage at time 38
+In FETCH  Stage at time 38
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 38
+
+
+In WRITE Stage at time 39
+In EXECUTE Stage at time 39
+In DISPATCH Stage at time 39
+	Could not find any instruction to dispatch. Time: 39.00
+In ISSUE  Stage at time 39
+In FETCH  Stage at time 39
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 39
+
+
+In WRITE Stage at time 40
+In EXECUTE Stage at time 40
+In DISPATCH Stage at time 40
+	Could not find any instruction to dispatch. Time: 40.00
+In ISSUE  Stage at time 40
+In FETCH  Stage at time 40
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 40
+
+
+In WRITE Stage at time 41
+In EXECUTE Stage at time 41
+In DISPATCH Stage at time 41
+	Could not find any instruction to dispatch. Time: 41.00
+In ISSUE  Stage at time 41
+In FETCH  Stage at time 41
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 41
+
+
+In WRITE Stage at time 42
+In EXECUTE Stage at time 42
+In DISPATCH Stage at time 42
+	Could not find any instruction to dispatch. Time: 42.00
+In ISSUE  Stage at time 42
+In FETCH  Stage at time 42
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 42
+
+
+In WRITE Stage at time 43
+In EXECUTE Stage at time 43
+In DISPATCH Stage at time 43
+	Could not find any instruction to dispatch. Time: 43.00
+In ISSUE  Stage at time 43
+In FETCH  Stage at time 43
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 43
+
+
+In WRITE Stage at time 44
+In EXECUTE Stage at time 44
+In DISPATCH Stage at time 44
+	Could not find any instruction to dispatch. Time: 44.00
+In ISSUE  Stage at time 44
+In FETCH  Stage at time 44
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 44
+
+
+In WRITE Stage at time 45
+In EXECUTE Stage at time 45
+In DISPATCH Stage at time 45
+	Could not find any instruction to dispatch. Time: 45.00
+In ISSUE  Stage at time 45
+In FETCH  Stage at time 45
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 45
+
+
+In WRITE Stage at time 46
+In EXECUTE Stage at time 46
+In DISPATCH Stage at time 46
+	Could not find any instruction to dispatch. Time: 46.00
+In ISSUE  Stage at time 46
+In FETCH  Stage at time 46
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 46
+
+
+In WRITE Stage at time 47
+In EXECUTE Stage at time 47
+In DISPATCH Stage at time 47
+	Could not find any instruction to dispatch. Time: 47.00
+In ISSUE  Stage at time 47
+In FETCH  Stage at time 47
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 47
+
+
+In WRITE Stage at time 48
+In EXECUTE Stage at time 48
+In DISPATCH Stage at time 48
+	Could not find any instruction to dispatch. Time: 48.00
+In ISSUE  Stage at time 48
+In FETCH  Stage at time 48
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 48
+
+
+In WRITE Stage at time 49
+In EXECUTE Stage at time 49
+In DISPATCH Stage at time 49
+	Could not find any instruction to dispatch. Time: 49.00
+In ISSUE  Stage at time 49
+In FETCH  Stage at time 49
+	PC: 24 INSTRUCTION: 28000000
+In DISPLAY  Stage at time 49
+
+
+In WRITE Stage at time 50
+
+
+****************************************************************************************
+Simulation ended  at  50
+NUM_WAITBUFS: 4 NUM_COPIES: 1  LOAD_CYCLES: 4
+Execution completed at time   15
+Retirement completed  at time   18
+Number Instructions Retired: 10
+Number Stall Cycles: 38
+Number Stall Cycles: HALT : 35 WaitBufferFull : 0 BranchControl: 0  Branch Data: 0
+Number WAW Stall Cycles: 3
+Number WAR Stall Cycles: 0
+REG[0]: 501	REG[1]: 2	REG[2]: 1001	REG[3]: 1	REG[4]: 256	REG[5]: 2	REG[6]: 512	REG[7]: 0	
+REG[8]: 0	REG[9]: -1	REG[10]: 0	REG[11]: 0	REG[12]: 0	REG[13]: 0	REG[14]: 0	REG[15]: 0	
+
+Final Destination Memory Array
+MEM[512]: 0
+MEM[513]: 0
+
+********************************************************************************
+************************* YACSIM - Normal Termination **************************
+********************************************************************************

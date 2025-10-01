@@ -1,0 +1,35 @@
+Compile command
+----------------
+
+gcc *.c ./yacsim.o -lm -o runme
+
+MNake sure you dont have spurious .c files in your directory.
+Make sure that only 1 program in insMem.c is uncommented at any run.
+
+Execute command with arguments
+-------------------------------
+
+./runme --numFUs 8 --numCopies 1 --numIterations 2 --trace 1 --numWaitBuffers 4
+
+You should (only) change  "numIterations" and "trace" for the actual experiment.
+
+
+Notes
+-----------
+1. All three programs have execution times for LOAD, STORE and ADDFP set to 4.0 in global.h
+2. The MAX_SIMULATION_TIME in global.h is set to 50.0 for debugging small (numIterations =2) test cases.
+
+3. For actual experiments set the execution times for LOAD, STORE and ADDFP  to 100.0 in global.h
+4. For actual experiments set MAX_SIMULATION_TIME as indicated in global.h
+5. For actual experiments dont forget to set trace to 0 in the command line.
+
+
+Implementation Caveats
+----------------------
+Note that the design:
+
+1. Does not implement an LSQ structure but issues all LD/SD instructiosn to the general insWaitBuffer.
+2. Has separate LOAD and STORE units which can run concurrently with each other, Theoretically this can allow
+out-of-order execution of LDs and SDs that can result in LD/SD hazards through memory. However, in all our
+programs, register RAW dependencies prevent a SD (LD) from  overtaking an earlier LD (SD) to the same address.
+
